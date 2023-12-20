@@ -8,9 +8,9 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"github.com/shenghui0779/gochat/event"
-	"github.com/shenghui0779/gochat/urls"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/event"
+	"github.com/liniu/gochat/urls"
+	"github.com/liniu/gochat/wx"
 )
 
 type Corp struct {
@@ -27,8 +27,8 @@ func (corp *Corp) CorpID() string {
 
 // OAuth2URL 生成网页授权URL（请使用 URLEncode 对 redirectURL 进行处理）
 // [参考](https://open.work.weixin.qq.com/api/doc/90000/90135/91020)
-func (corp *Corp) OAuth2URL(scope AuthScope, redirectURL, state string) string {
-	return fmt.Sprintf("%s?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s#wechat_redirect", urls.Oauth2Authorize, corp.corpid, redirectURL, scope, state)
+func (corp *Corp) OAuth2URL(scope AuthScope, redirectURL, state, agentID string) string {
+	return fmt.Sprintf("%s?appid=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s&agentid=%s#wechat_redirect", urls.Oauth2Authorize, corp.corpid, redirectURL, scope, state, agentID)
 }
 
 // QRCodeAuthURL 生成扫码授权URL（请使用 URLEncode 对 redirectURL 进行处理）

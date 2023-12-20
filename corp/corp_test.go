@@ -6,16 +6,16 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/shenghui0779/gochat/mock"
+	"github.com/liniu/gochat/mock"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestOAuth2URL(t *testing.T) {
 	cp := New("CORPID")
 
-	authURL := cp.OAuth2URL(ScopeSnsapiBase, "REDIRECT_URI", "STATE")
+	authURL := cp.OAuth2URL(ScopeSnsapiBase, "REDIRECT_URI", "STATE", "AGENTID")
 
-	assert.Equal(t, "https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect", authURL)
+	assert.Equal(t, "https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE&agentid=AGENTID#wechat_redirect", authURL)
 }
 
 func TestQRCodeAuthURL(t *testing.T) {

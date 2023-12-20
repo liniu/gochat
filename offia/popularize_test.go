@@ -13,8 +13,8 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/shenghui0779/gochat/mock"
-	"github.com/shenghui0779/gochat/urls"
+	"github.com/liniu/gochat/mock"
+	"github.com/liniu/gochat/urls"
 )
 
 func TestCreateQRCode(t *testing.T) {

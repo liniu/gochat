@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/shenghui0779/gochat/corp"
-	"github.com/shenghui0779/gochat/mock"
+	"github.com/liniu/gochat/corp"
+	"github.com/liniu/gochat/mock"
 	"github.com/stretchr/testify/assert"
 )
 

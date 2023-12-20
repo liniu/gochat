@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/wx"
 )
 
 type ResultSign struct {

@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/shenghui0779/gochat/urls"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/urls"
+	"github.com/liniu/gochat/wx"
 )
 
 // ParamsCorpRedpack 企业红包参数

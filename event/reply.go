@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/wx"
 )
 
 // Reply 消息回复

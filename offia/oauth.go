@@ -3,8 +3,8 @@ package offia
 import (
 	"encoding/json"
 
-	"github.com/shenghui0779/gochat/urls"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/urls"
+	"github.com/liniu/gochat/wx"
 )
 
 // OAuthToken 公众号网页授权Token

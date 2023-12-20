@@ -10,9 +10,9 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"github.com/shenghui0779/gochat/event"
-	"github.com/shenghui0779/gochat/urls"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/event"
+	"github.com/liniu/gochat/urls"
+	"github.com/liniu/gochat/wx"
 )
 
 // AuthScope 应用授权作用域

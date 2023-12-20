@@ -8,9 +8,9 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/shenghui0779/gochat/mock"
-	"github.com/shenghui0779/gochat/offia"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/mock"
+	"github.com/liniu/gochat/offia"
+	"github.com/liniu/gochat/wx"
 )
 
 func TestGetAccountList(t *testing.T) {

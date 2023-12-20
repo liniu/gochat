@@ -2,7 +2,11 @@
 
 [![golang](https://img.shields.io/badge/Language-Go-green.svg?style=flat)](https://golang.org) [![GitHub release](https://img.shields.io/github/release/shenghui0779/gochat.svg)](https://github.com/shenghui0779/gochat/releases/latest) [![pkg.go.dev](https://img.shields.io/badge/dev-reference-007d9c?logo=go&logoColor=white&style=flat)](https://pkg.go.dev/github.com/shenghui0779/gochat) [![Apache 2.0 license](http://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](http://opensource.org/licenses/apache2.0)
 
+
 ## 👉 该项目不再更新，请使用 [新SDK](https://github.com/shenghui0779/wechat)
+
+## 说明：原项目已经停更，我有项目依赖，我是初学者，只好硬着头皮更新
+
 
 📦 微信 Go SDK
 

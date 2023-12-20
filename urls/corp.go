@@ -7,8 +7,9 @@ const (
 	CorpCgiBinAccessToken  = "https://qyapi.weixin.qq.com/cgi-bin/gettoken"
 	CorpCgiBinAPIDomainIP  = "https://qyapi.weixin.qq.com/cgi-bin/get_api_domain_ip"
 	CorpCgiBinCallbackIP   = "https://qyapi.weixin.qq.com/cgi-bin/getcallbackip"
-	CorpCgiBinUserInfo     = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo"
+	CorpCgiBinUserInfo     = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo"	
 	CorpCgiBinUserAuthSucc = "https://qyapi.weixin.qq.com/cgi-bin/user/authsucc"
+	CorpCgiBinUserDetail   = "https://qyapi.weixin.qq.com/cgi-bin/auth/getuserdetail"
 	CorpCginBinCallbackIP  = "https://qyapi.weixin.qq.com/cgi-bin/getcallbackip"
 )
 

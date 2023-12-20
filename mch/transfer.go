@@ -3,8 +3,8 @@ package mch
 import (
 	"strconv"
 
-	"github.com/shenghui0779/gochat/urls"
-	"github.com/shenghui0779/gochat/wx"
+	"github.com/liniu/gochat/urls"
+	"github.com/liniu/gochat/wx"
 )
 
 // ParamsTransferBalance 付款到零钱参数

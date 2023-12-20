@@ -1,10 +1,10 @@
 package gochat
 
 import (
-	"github.com/shenghui0779/gochat/corp"
-	"github.com/shenghui0779/gochat/mch"
-	"github.com/shenghui0779/gochat/minip"
-	"github.com/shenghui0779/gochat/offia"
+	"github.com/liniu/gochat/corp"
+	"github.com/liniu/gochat/mch"
+	"github.com/liniu/gochat/minip"
+	"github.com/liniu/gochat/offia"
 )
 
 // NewMch 微信商户
