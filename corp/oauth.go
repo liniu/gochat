@@ -60,30 +60,41 @@ func GetOAuthUser(code string, result *ResultOAuthUser) wx.Action {
 	)
 }
 
-type ResultOAuthUserDetail struct {
-	UserID  string `json:"userid"`
-	Gender  string `json:"gender"`
-	Avatar  string `json:"avatar"`
-	QRCode  string `json:"qr_code"`
-	Mobile  string `json:"mobile"`
-	Email   string `json:"email"`
-	BizMail string `json:"biz_mail"`
-	Address string `json:"address"`
-}
-
-// GetOAuthUserDetail 获取访问用户敏感信息
-func GetOAuthUserDetail(userTicket string, result *ResultOAuthUserDetail) wx.Action {
-	return wx.NewGetAction(urls.CorpCgiBinUserInfo,
-		wx.WithQuery("user_ticket", userTicket),
-		wx.WithDecode(func(b []byte) error {
-			return json.Unmarshal(b, result)
-		}),
-	)
-}
-
 // UserAuthSucc 二次验证
 func UserAuthSucc(userID string) wx.Action {
 	return wx.NewGetAction(urls.CorpCgiBinUserAuthSucc,
 		wx.WithQuery("userid", userID),
+	)
+}
+
+// OAuthUserDetail 访问用户敏感信息
+type ResultOAuthUserDetail struct {
+	UserId  string `json:"userid"`
+	Mobile  string `json:"mobile"`
+	Gender  string `json:"gender"`
+	Email   string `json:"email"`
+	Avatar  string `json:"avatar"`
+	QrCode  string `json:"qr_code"`
+	BizMail string `json:"biz_mail"`
+	Address string `json:"address"`
+}
+
+// ParamsOAuthUserDetail 获取访问用户敏感信息参数
+type ParamsOAuthUserDetail struct {
+	UserTicket string `json:"user_ticket"`
+}
+
+// GetOAuthUserDetail 获取访问用户敏感信息，需要在后台通讯录配置开启
+func GetOAuthUserDetail(userTicket string, result *ResultOAuthUserDetail) wx.Action {
+	params := &ParamsOAuthUserDetail{
+		UserTicket: userTicket,
+	}
+	return wx.NewPostAction(urls.CorpCgiBinUserDetail,
+		wx.WithBody(func() ([]byte, error) {
+			return wx.MarshalNoEscapeHTML(params)
+		}),
+		wx.WithDecode(func(b []byte) error {
+			return json.Unmarshal(b, result)
+		}),
 	)
 }

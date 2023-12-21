@@ -7,12 +7,14 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"mime/multipart"
 	"net"
 	"net/http"
+	"net/http/httputil"
 	"net/url"
 	"time"
+
+	"log"
 )
 
 // httpSetting http request setting
@@ -20,10 +22,18 @@ type httpSetting struct {
 	headers map[string]string
 	cookies []*http.Cookie
 	close   bool
+	debug   bool
 }
 
 // HTTPOption configures how we set up the http request.
 type HTTPOption func(s *httpSetting)
+
+// WithDebug debug mode.
+func WithDebug(debug bool) HTTPOption {
+	return func(s *httpSetting) {
+		s.debug = debug
+	}
+}
 
 // WithHTTPHeader specifies the header to http request.
 func WithHTTPHeader(key, value string) HTTPOption {
@@ -178,7 +188,11 @@ func (c *httpclient) Do(ctx context.Context, method, reqURL string, body []byte,
 	if setting.close {
 		req.Close = true
 	}
-
+	// debug ,print request content
+	if setting.debug {
+		reqDump, _ := httputil.DumpRequest(req, true)
+		log.Printf("URL=%s\n----------Request----------\n%s", reqURL, string(reqDump))
+	}
 	resp, err := c.client.Do(req)
 
 	if err != nil {
@@ -195,12 +209,16 @@ func (c *httpclient) Do(ctx context.Context, method, reqURL string, body []byte,
 	defer resp.Body.Close()
 
 	if resp.StatusCode >= http.StatusBadRequest {
-		io.Copy(ioutil.Discard, resp.Body)
+		io.Copy(io.Discard, resp.Body)
 
 		return nil, fmt.Errorf("unexpected status %d", resp.StatusCode)
 	}
-
-	return ioutil.ReadAll(resp.Body)
+	// debug ,print response content
+	if setting.debug {
+		respDump, _ := httputil.DumpResponse(resp, true)
+		log.Printf("URL=%s\n----------Response----------\n%s", reqURL, string(respDump))
+	}
+	return io.ReadAll(resp.Body)
 }
 
 func (c *httpclient) Upload(ctx context.Context, reqURL string, form UploadForm, options ...HTTPOption) ([]byte, error) {
