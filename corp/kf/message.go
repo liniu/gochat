@@ -102,6 +102,7 @@ type ParamsMsgSync struct {
 	Token       string `json:"token,omitempty"`
 	Limit       int    `json:"limit,omitempty"`
 	VoiceFormat int    `json:"voice_format,omitempty"`
+	OpenKFID    int    `json:"open_kfid,omitempty"`
 }
 
 type ResultMsgSync struct {
